@@ -18,8 +18,7 @@ Mode mode = OFF;
 Mode lastMode = OFF;
 int pirCurrentValue = 0;
 boolean animationIsPlaying;
-#define SAMPLES   10  // Length of buffer for dynamic level adjustment
-int n, total = 30;
+int n = 30;
 float average = 0;
 int fade_h;
 int fade_direction = 1;
@@ -125,11 +124,10 @@ void colorFade() {
 }
 
 void lightningStrikes() {
-    average = (total / SAMPLES) + 2;
+    average = 17;
     if (n > average) {
         Serial.println("TRIGGERED");
         turnAllLightsOff();
-
 
         switch (random(1, 3)) {
             case 1:
